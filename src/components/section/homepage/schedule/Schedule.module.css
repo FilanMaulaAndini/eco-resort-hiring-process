@@ -1,0 +1,140 @@
+.scheduleWrapper {
+  margin: 9rem 0;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+.scheduleHeader {
+  padding-bottom: 4rem;
+}
+
+.heading {
+  font-size: var(--font-size-3xl);
+}
+
+.headingText {
+  margin-top: 1rem;
+  color: var(--color-text-dark) !important;
+  font-family: var(--font-secondary) !important;
+}
+
+.scheduleGridWrapper {
+  overflow-x: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scheduleGrid {
+  max-width: 73.75rem;
+  display: grid;
+  grid-template-columns: 5rem repeat(7, minmax(7.5rem, 1fr));
+  gap: 0;
+  width: max-content;
+}
+
+.stickyColumn {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+
+  border-left: 0;
+  border-right: 0;
+  padding: 1.5rem;
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.dayCell {
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+  min-width: 7.5rem;
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--brand, #333);
+}
+
+.timeRow {
+  display: contents;
+}
+
+.timeCell {
+  padding-top: 2rem;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--background);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  font-size: 0.625rem;
+  font-weight: 400;
+}
+
+.sessionCell {
+  position: relative;
+  padding: 0.5rem;
+  height: 5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0;
+  border-right: 0;
+  pointer-events: none;
+}
+
+.session {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.625rem;
+  font-weight: 400;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity 0.3s;
+}
+
+.session:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .scheduleWrapper {
+    margin: 8rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .scheduleWrapper {
+    margin: 7rem 0;
+  }
+
+  .heading {
+    font-size: var(--font-size-4xl);
+  }
+
+  .headingText {
+    font-size: var(--font-size-xl);
+  }
+
+  .dayCell {
+    font-size: var(--font-size-xl);
+  }
+
+  .timeCell {
+    font-size: var(--font-size-xl);
+  }
+}

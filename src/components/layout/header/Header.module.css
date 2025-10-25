@@ -1,0 +1,367 @@
+.navContainer {
+  font-family: var(--font-secondary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.navContainerScrolled {
+  background: var(--background);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--color-primary);
+}
+
+.hamburger {
+  margin-right: 2.5rem;
+  width: 4rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.line {
+  background-color: var(--background);
+  width: 45%;
+  transition: all 0.3s ease;
+}
+
+.line1 {
+  height: 0.5px;
+}
+.line1Scrolled {
+  height: 1px;
+  background-color: var(--color-primary) !important;
+}
+
+.line2 {
+  width: 100%;
+  height: 1px;
+}
+.line2Scrolled {
+  height: 0.5px;
+  background-color: var(--color-primary) !important;
+}
+
+.hamburger:hover .line1,
+.hamburger:hover .line2 {
+  width: 75%;
+  background-color: var(--color-primary);
+}
+
+.hamburger.active .line1 {
+  transform: rotate(45deg) translate(4px, 5px);
+  width: 90%;
+}
+.hamburger.active .line2 {
+  transform: rotate(-45deg) translate(4px, -5px);
+  width: 90%;
+}
+
+.navLinks {
+  color: var(--color-text-light);
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  align-items: center;
+}
+
+.navLinks a {
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navLinksScrolled {
+  color: var(--color-primary) !important;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+.logoContainer {
+  flex: 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.animateZoomOut {
+  animation: zoomOut 1.5s ease-out forwards;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stayButton {
+  padding: 12px 30px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 0.5rem 0rem 0.5rem 0rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.stayButtonScrolled {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.stayButton:hover {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  overflow-y: auto;
+  padding: 6rem 3rem 3rem;
+}
+
+.menuOverlayActive {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menuContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  min-height: calc(100vh - 9rem);
+}
+
+.menuLeft,
+.menuRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  row-gap: 2rem;
+}
+
+.menuLeft {
+  justify-content: center;
+}
+
+.menuRight {
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.menuCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.centerImageContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 250px 250px 0 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.centerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menuLink {
+  color: var(--color-primaryt);
+  text-decoration: none;
+  font-size: var(--font-size-4xl);
+  font-weight: 300;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.menuLink:hover {
+  color: #9a8350;
+  transform: translateX(10px);
+}
+
+.menuRight .menuLink:hover {
+  transform: translateX(-10px);
+}
+
+.menuLink::before {
+  content: "/";
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+
+.menuImageHiddenXl {
+  display: block;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  flex: 1 1 0%;
+  font-size: var(--font-size-3xl);
+}
+
+.navList {
+  gap: 1rem;
+  width: fit-content;
+}
+
+.navItem {
+  display: inline-block;
+  opacity: 1;
+}
+
+.navItem span {
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+
+.navItem a {
+  transition: opacity 0.3s ease;
+}
+
+.navItem a:hover {
+  opacity: 0.5;
+}
+
+.socialList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  width: fit-content;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-s);
+  max-width: 18rem;
+}
+
+.smallLogoContainer {
+  width: 5rem;
+}
+
+.smallLogo {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+.menuImageContainer {
+  width: 100%;
+  aspect-ratio: 15/10;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  overflow: hidden;
+}
+
+.menuImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+@media (min-width: 1280px) {
+  .menuRightXl {
+    display: flex;
+  }
+}
+
+@media (max-width: 1280px) {
+  .navContainer {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .navContainer {
+    padding: 1rem;
+  }
+
+  .menuCenter {
+    display: block;
+  }
+
+  .menuImageHiddenXl {
+    display: block;
+    width: 100%;
+    aspect-ratio: 15/10;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    overflow: hidden;
+  }
+}

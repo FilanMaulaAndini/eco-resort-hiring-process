@@ -1,0 +1,56 @@
+.experienceSection {
+  margin: 9rem 0 0 0;
+}
+
+.experienceSectionHeading {
+  font-size: var(--font-size-3xl);
+  text-align: center;
+  margin: auto;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.experienceSectionText {
+  max-width: 40rem;
+  margin: auto;
+}
+
+.hero {
+  min-height: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.heroImage {
+  height: 1108px;
+  background-image: url("https://images.prismic.io/ulaman/ZpZPRh5LeNNTxMAj_ulaman.jpg?auto=format,compress");
+  background-size: cover;
+  background-position: center;
+  transition:
+    border-radius 1s cubic-bezier(0.22, 1, 0.36, 1),
+    width 1s ease-out,
+    transform 1s ease-out;
+  will-change: border-radius, transform;
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .experienceSection {
+    margin: 10rem 0 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .experienceSection {
+    margin: 7rem 0 0 0;
+  }
+
+  .experienceSectionHeading {
+    font-size: var(--font-size-4xl);
+    padding: 0 1.5rem;
+  }
+}

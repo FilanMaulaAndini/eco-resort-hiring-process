@@ -1,0 +1,45 @@
+/* @font-face {
+    font-family: 'Americana BT';
+    src: url('/public/fonts/americana/AmericanaBT-Roman.woff2') format('woff2'),
+        url('/public/fonts/americana/AmericanaBT-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  } */
+/* 
+  @font-face {
+    font-family: 'americana_btbold';
+    src: url('americanabt_bold-webfont.woff2') format('woff2'),
+         url('americanabt_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'americana_btitalic';
+    src: url('americanabt_italic-webfont.woff2') format('woff2'),
+         url('americanabt_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+} */
+
+
+@font-face {
+    font-family: 'americana_btroman';
+    src: url('../../public/fonts/americana/AmericanaBT-Roman.woff2') format('woff2'),
+         url('../../public/fonts/americana/AmericanaBT-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'basis_grotesque';
+    src: url('../../public/fonts/basisgrotesque/basisgrotesquearabicpro-regular-webfont.woff2') format('woff2'),
+         url('../../public/fonts/basisgrotesque/basisgrotesquearabicpro-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

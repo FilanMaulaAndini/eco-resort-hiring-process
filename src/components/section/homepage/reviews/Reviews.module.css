@@ -1,0 +1,167 @@
+.carousel {
+  position: relative;
+  margin-top: 9rem;
+  outline: none;
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 9rem;
+}
+
+.carouselTitle {
+  font-size: var(--font-size-3xl);
+}
+
+.ratings {
+  font-family: var(--font-secondary);
+  display: flex;
+  gap: 3.5rem;
+  font-size: var(-font-size-sm);
+  margin-top: 2rem;
+}
+
+.ratingItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratingItem svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: currentColor;
+}
+
+.navButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.navButton {
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.slidesContainer {
+  overflow: hidden;
+  padding: 2.5rem 8rem 0 8rem;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  padding-left: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+.slideContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid var(--color-dark);
+  color: var(--color-dark);
+
+  font-family: var(--font-secondary);
+}
+
+.slideHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 2rem;
+}
+
+.slideHeader h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.slideText h5 {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  padding-right: 3rem;
+}
+
+.slideText {
+  max-width: 32rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .carousel {
+    margin-top: 10rem;
+  }
+
+  .carouselHeader {
+    padding: 0 5rem;
+  }
+
+  .slidesContainer {
+    overflow: hidden;
+    padding: 2.5rem 4rem 0 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel {
+    margin-top: 7rem;
+  }
+
+  .carouselHeader {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .carouselTitle {
+    font-size: var(--font-size-4xl);
+  }
+
+  .ratings {
+    font-size: var(--font-size-base);
+    padding-bottom: 2rem;
+  }
+
+  .slidesContainer {
+    overflow: hidden;
+    padding: 2.5rem 2rem 0 2rem;
+  }
+
+  .slideContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slideHeader h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .slideText h5 {
+    font-size: var(--font-size-xl);
+    margin-bottom: 1rem;
+  }
+}
