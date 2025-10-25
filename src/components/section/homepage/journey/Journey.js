@@ -39,7 +39,7 @@ export default function Journey() {
     <section ref={sectionRef} className={styles.section}>
       <figure className={styles.images}>
         <img
-          src="https://images.prismic.io/ulaman/ZiPZhfPdc1huKp0x_eco-retreat.jpg?auto=format,compress"
+          src="https://images.prismic.io/ulaman/ZlQ_cik0V36pXpWM_ulaman-eco-resort.jpg?auto=format,compress"
           alt="Left wellness"
           loading="lazy"
           className={`${styles.image} ${styles.left}`}

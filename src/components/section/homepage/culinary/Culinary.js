@@ -1,7 +1,7 @@
 import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./Culinary.module.css";
 import { useEffect, useRef } from "react";
-import culinary from "/data/aboutImages";
+import culinary from "/data/culinary.json";
 
 export default function Culinary() {
   const imageRefs = useRef([]);
