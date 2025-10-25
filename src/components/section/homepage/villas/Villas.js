@@ -132,7 +132,7 @@ function Villass({ villas }) {
                     ></div>
                   ))}
                   {hovered === index && (
-                    <div>
+                    <>
                       <ChevronLeftLight
                         onClick={() =>
                           handleSlideChange(index, "prev", totalImages)
@@ -145,7 +145,7 @@ function Villass({ villas }) {
                         }
                         disabled={currentIndex === totalImages - 1}
                       />
-                    </div>
+                    </>
                   )}
                 </div>
               </div>
