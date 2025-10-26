@@ -1,31 +1,11 @@
 import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./Journey.module.css";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
+import useScrollImageOpen from "@/hooks/scroll-image-open";
 
 export default function Journey() {
   const sectionRef = useRef(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const raw =
-        1 - (rect.top + rect.height * 0.4) / (windowHeight + rect.height);
-      const startPoint = 0.4;
-      const adjusted = (raw - startPoint) / (1 - startPoint);
-      const clamped = Math.min(Math.max(adjusted, 0), 1);
-
-      setProgress(clamped);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const progress = useScrollImageOpen(sectionRef);
 
   const maxTranslate = 450;
   const leftTranslate = progress * -maxTranslate;

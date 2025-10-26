@@ -2,11 +2,12 @@
 
 import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./About.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ChevronLeftLight from "@/components/ui/chevron/ChevronLeftLight";
 import ChevronRightLight from "@/components/ui/chevron/ChevronRightLight";
 import aboutImages from "/data/aboutImages";
 import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
+import useScrollHighlight from "@/hooks/scroll-highlight";
 
 export default function About() {
   const [hovered, setHovered] = useState(false);
@@ -14,29 +15,7 @@ export default function About() {
   const textRef = useRef(null);
   const fullText =
     "Nestled among the rice fields and coconut trees of Tabanan, Ulaman is only 20 minutes away from the vibrant town of Canggu.";
-  const letters = fullText.split("");
-  const [highlightIndex, setHighlightIndex] = useState(0);
-  
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!textRef.current) return;
-      const rect = textRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const progress = Math.min(
-        Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0),
-        1
-      );
-      const index = Math.floor(progress * letters.length);
-      setHighlightIndex(index);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [letters.length]);
-
+  const { letters, highlightIndex } = useScrollHighlight(textRef, fullText);
   const [currentSlides, setCurrentSlides] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -69,7 +48,7 @@ export default function About() {
       <section className={styles.aboutSection}>
         <div className={styles.container}>
           <h1 ref={textRef} className={styles.mainHeading}>
-            {letters.map((letter, idx) => (
+            {letters?.map((letter, idx) => (
               <span
                 key={idx}
                 style={{

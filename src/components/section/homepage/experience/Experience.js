@@ -2,31 +2,12 @@ import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./Experience.module.css";
 import { useEffect, useState, useRef } from "react";
 import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
+import useScrollRounded from "@/hooks/scroll-rounded";
 
 export default function Experience() {
   const sectionRef = useRef(null);
-  const [progress, setProgress] = useState(0);
+  const progress = useScrollRounded(sectionRef);
   const [ref, visible] = useFadeInOnScroll();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const sectionHeight = rect.height;
-
-      const totalScrollRange = windowHeight + sectionHeight * 0.6;
-      const rawProgress = 1 - (rect.top + sectionHeight) / totalScrollRange;
-      const clampedProgress = Math.min(Math.max(rawProgress, 0), 1);
-
-      setProgress(clampedProgress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const widthProgress = Math.min(progress * 2, 1);
   const width = 50 + (100 - 50) * widthProgress;
