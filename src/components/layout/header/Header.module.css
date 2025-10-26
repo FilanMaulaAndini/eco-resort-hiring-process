@@ -103,13 +103,19 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #d4af37;
+  background: var(--color-text-light);
   transition: width 0.3s ease;
+}
+
+.navLinksScrolled a::after {
+  background: var(--color-primary); /* or yellow */
 }
 
 .navLinks a:hover::after {
   width: 100%;
 }
+
+
 
 .logoContainer {
   flex: 0;
@@ -165,17 +171,31 @@
   right: 0;
   bottom: 0;
   background: var(--background);
-  z-index: 2;
+  z-index: 20;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
   overflow-y: auto;
   padding: 6rem 3rem 3rem;
+  /* animation: fadeInUp 0.5s ease forwards; */
 }
 
 .menuOverlayActive {
   opacity: 1;
   pointer-events: all;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menuContent {
@@ -187,6 +207,20 @@
   width: 100%;
   margin: 0 auto;
   min-height: calc(100vh - 9rem);
+}
+
+.menuContent {
+  grid-template-areas: "box1 box2 box3";
+}
+
+.box1 {
+  grid-area: box1;
+}
+.box2 {
+  grid-area: box2;
+}
+.box3 {
+  grid-area: box3;
 }
 
 .menuLeft,
@@ -218,6 +252,14 @@
   position: relative;
 }
 
+.menuImageContainer {
+  width: 100%;
+  aspect-ratio: 15/10;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  overflow: hidden;
+}
+
 .centerImageContainer {
   width: 100%;
   height: 100%;
@@ -228,7 +270,7 @@
 
 .centerImage {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   display: block;
 }
@@ -260,7 +302,7 @@
 }
 
 .menuImageHiddenXl {
-  display: block;
+  display: none;
 }
 
 .navWrapper {
@@ -314,14 +356,6 @@
   opacity: 1;
 }
 
-.menuImageContainer {
-  width: 100%;
-  aspect-ratio: 15/10;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
-  overflow: hidden;
-}
-
 .menuImage {
   width: 100%;
   height: 100%;
@@ -329,11 +363,11 @@
   opacity: 1;
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .menuRightXl {
     display: flex;
   }
-}
+} */
 
 @media (max-width: 1280px) {
   .navContainer {
@@ -348,6 +382,16 @@
 }
 
 @media (max-width: 640px) {
+  .menuContent {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "box1 box3"
+      "box2 box2";
+    height: calc(100vh - 10rem);
+    overflow: hidden;
+    padding: 0 1.5rem;
+  }
+
   .navContainer {
     padding: 1rem;
   }
@@ -356,10 +400,14 @@
     display: block;
   }
 
+  .menuOverlay {
+    padding: 10rem 0 0 0;
+  }
+
   .menuImageHiddenXl {
     display: block;
     width: 100%;
-    aspect-ratio: 15/10;
+    /* aspect-ratio: 15/10; */
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
     overflow: hidden;

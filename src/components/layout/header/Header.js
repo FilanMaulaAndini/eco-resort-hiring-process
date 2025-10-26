@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import ToggleButton from "@/components/ui/button/ToggleButton";
+import Link from "next/link";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,29 +19,23 @@ export default function Header() {
 
   const handleMenuOpen = () => {
     setMenuOpen(!menuOpen);
-
-    if (!menuOpen) {
-      setScrolled(true);
-    } else {
-      setScrolled(window.scrollY > 50);
-    }
   };
 
   return (
     <header>
       <nav
-        className={`${styles.navContainer} ${scrolled ? styles.navContainerScrolled : ""}`}
+        className={`${styles.navContainer} ${scrolled || menuOpen ? styles.navContainerScrolled : ""}`}
       >
         <div style={{ display: "flex", flex: 1 }}>
           <button
             onClick={() => handleMenuOpen()}
-            className={`${styles.hamburger} ${menuOpen ? styles.active : ""}`}
+            className={`${styles.hamburger} ${menuOpen || menuOpen ? styles.active : ""}`}
           >
             <span
-              className={`${styles.line} ${styles.line1} ${scrolled ? styles.line1Scrolled : ""}`}
+              className={`${styles.line} ${styles.line1} ${scrolled || menuOpen ? styles.line1Scrolled : ""}`}
             ></span>
             <span
-              className={`${styles.line} ${styles.line2} ${scrolled ? styles.line2Scrolled : ""}`}
+              className={`${styles.line} ${styles.line2} ${scrolled || menuOpen ? styles.line2Scrolled : ""}`}
             ></span>
           </button>
 
@@ -48,27 +43,29 @@ export default function Header() {
             className={`${styles.navLinks} ${scrolled ? styles.navLinksScrolled : ""}`}
           >
             <li>
-              <a href="#villas">Villas</a>
+              <a href="/villas">Villas</a>
             </li>
             <li>
-              <a href="#spa">Spa</a>
+              <a href="/spa">Spa</a>
             </li>
             <li>
-              <a href="#dine">Dine</a>
+              <a href="/dine">Dine</a>
             </li>
             <li>
-              <a href="#retreats">Retreats</a>
+              <a href="/retreats">Retreats</a>
             </li>
           </ul>
         </div>
         <div className={styles.logoContainer}>
           <div className={`${styles.logo} ${styles.animateZoomOut}`}>
-            <Image
-              src="https://ulaman.cdn.prismic.io/ulaman/aAMlsuvxEdbNPPas_logo-new.svg"
-              alt="Ulaman Logo"
-              width={scrolled ? 160 : 220}
-              height={scrolled ? 60 : 90}
-            />
+            <Link href="/">
+              <Image
+                src="https://ulaman.cdn.prismic.io/ulaman/aAMlsuvxEdbNPPas_logo-new.svg"
+                alt="Ulaman Logo"
+                width={scrolled ? 160 : 220}
+                height={scrolled ? 60 : 90}
+              />
+            </Link>
           </div>
         </div>
 
@@ -76,7 +73,7 @@ export default function Header() {
           <ToggleButton
             href="/"
             children={"Stay With Us"}
-            scrolled={scrolled}
+            scrolled={scrolled || menuOpen}
           />
         </div>
       </nav>
@@ -85,7 +82,7 @@ export default function Header() {
         className={`${styles.menuOverlay} ${menuOpen ? styles.menuOverlayActive : ""}`}
       >
         <div className={styles.menuContent}>
-          <div className={styles.menuLeft}>
+          <div className={`${styles.menuLeft} ${styles.box1}`}>
             <nav className={styles.navWrapper}>
               <ul className={styles.navList}>
                 <li className={styles.navItem}>
@@ -93,7 +90,7 @@ export default function Header() {
                 </li>
                 <li className={styles.navItem}>
                   <span>/</span>
-                  <a href="/rooms">Villas</a>
+                  <a href="/villas">Villas</a>
                 </li>
                 <li className={styles.navItem}>
                   <span>/</span>
@@ -162,21 +159,9 @@ export default function Header() {
                 </li>
               </ul>
             </nav>
-
-            {/* Bottom Menu Image */}
-            {/* <div
-              className={` ${styles.menuImageHiddenXl} ${styles.menuImageContainer}`}
-            >
-              <img
-                src="https://images.prismic.io/ulaman/Zjeq0EMTzAJOCirD_hotel.jpg?auto=format,compress"
-                alt="Ulaman Bali"
-                className={styles.menuImage}
-                loading="lazy"
-              />
-            </div> */}
           </div>
 
-          <div className={styles.menuCenter}>
+          <div className={`${styles.menuCenter} ${styles.box2}`}>
             <div className={`${styles.menuImageContainer}`}>
               <img
                 src="https://images.prismic.io/ulaman/Zjeq0EMTzAJOCirD_hotel.jpg?auto=format,compress"
@@ -186,7 +171,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div className={styles.menuRight}>
+          <div className={`${styles.menuRight} ${styles.box3}`}>
             <nav className={styles.navWrapper}>
               <ul className={styles.navList}>
                 <li className={styles.navItem}>
@@ -229,6 +214,17 @@ export default function Header() {
               />
             </div>
           </div>
+          {/* Bottom Menu Image */}
+          {/* <div
+              className={` ${styles.menuImageHiddenXl} `}
+            >
+              <img
+                src="https://images.prismic.io/ulaman/Zjeq0EMTzAJOCirD_hotel.jpg?auto=format,compress"
+                alt="Ulaman Bali"
+                className={styles.menuImage}
+                loading="lazy"
+              />
+            </div> */}
         </div>
       </div>
     </header>

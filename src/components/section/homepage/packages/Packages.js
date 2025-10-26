@@ -4,9 +4,11 @@ import { useState } from "react";
 import ChevronLeft from "@/components/ui/chevron/ChevronLeft";
 import ChevronRight from "@/components/ui/chevron/ChevronRight";
 import packages from "/data/packages.json";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function Packages() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [ref, visible] = useFadeInOnScroll();
 
   const slidesToShow = 1;
   const maxIndex = packages.length - slidesToShow;
@@ -21,7 +23,7 @@ export default function Packages() {
 
   return (
     <section className={styles.packagesSection}>
-      <h2 className={styles.packagesSectionHeading}>
+      <h2 ref={ref} className={`${styles.packagesSectionHeading} ${visible ? "fade-in-up" : ""}`}>
         <p className={styles.packagesSectionText}>
           Book one of our special
           <br />

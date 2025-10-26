@@ -2,9 +2,11 @@ import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./Culinary.module.css";
 import { useEffect, useRef } from "react";
 import culinary from "/data/culinary.json";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function Culinary() {
   const imageRefs = useRef([]);
+  const [ref, visible] = useFadeInOnScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +37,7 @@ export default function Culinary() {
 
   return (
     <section className={styles.container}>
-      <div className={styles.textContainer}>
+      <div ref={ref} className={`${styles.textContainer} ${visible ? "fade-in-up" : ""}`}>
         <h2 className={styles.title}>
           A world-class gastronomic journey where nature’s finest ingredients
           meet culinary craftsmanship.

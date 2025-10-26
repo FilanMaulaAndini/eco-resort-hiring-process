@@ -6,9 +6,11 @@ import ChevronRight from "@/components/ui/chevron/ChevronRight";
 import ChevronLeftLight from "@/components/ui/chevron/ChevronLeftLight";
 import ChevronRightLight from "@/components/ui/chevron/ChevronRightLight";
 import villas from "/data/villas.json";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function Villas() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [ref, visible] = useFadeInOnScroll();
 
   const slidesToShow = 1;
   const maxIndex = villas.length - slidesToShow;
@@ -23,7 +25,7 @@ export default function Villas() {
 
   return (
     <section className={styles.villasSection}>
-      <h2 className={styles.villasSectionHeading}>
+      <h2 ref={ref} className={`${styles.villasSectionHeading} ${visible ? "fade-in-up" : ""}`}>
         <p className={styles.villasSectionText}>
           Discover cozy elegance, where tranquility meets Bali's serene beauty.
         </p>

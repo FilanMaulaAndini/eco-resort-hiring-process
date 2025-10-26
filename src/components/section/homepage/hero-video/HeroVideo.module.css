@@ -155,6 +155,13 @@
     width: 49vw;
   }
 
+  .playing {
+    aspect-ratio: 18 / 10;
+    width: 100%;
+    height: auto;
+   
+  }
+
   .containerVideo {
     height: 65vw;
   }
@@ -165,6 +172,13 @@
   .video {
     width: 53vw;
   }
+
+  .playing {
+    aspect-ratio: 18 / 10;
+    width: 100%;
+    height: auto;
+  }
+  
   .containerVideo {
     height: 74vw;
   }

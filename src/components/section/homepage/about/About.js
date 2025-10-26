@@ -6,15 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import ChevronLeftLight from "@/components/ui/chevron/ChevronLeftLight";
 import ChevronRightLight from "@/components/ui/chevron/ChevronRightLight";
 import aboutImages from "/data/aboutImages";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function About() {
   const [hovered, setHovered] = useState(false);
+  const [ref, visible] = useFadeInOnScroll();
   const textRef = useRef(null);
   const fullText =
     "Nestled among the rice fields and coconut trees of Tabanan, Ulaman is only 20 minutes away from the vibrant town of Canggu.";
-
   const letters = fullText.split("");
   const [highlightIndex, setHighlightIndex] = useState(0);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +74,6 @@ export default function About() {
                 key={idx}
                 style={{
                   color: "var(--color-primary)",
-
                   opacity: idx <= highlightIndex ? 1 : 0.4,
                   transition: "color 0.2s ease",
                 }}
@@ -141,7 +142,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="fade-in-up">
+        <div ref={ref} className={`${visible ? "fade-in-up" : ""}`}>
           <h2 className={styles.sectionHeading}>
             An award-winning eco-luxury resort offering a unique hideaway
             experience. Embrace yourself in traditional Balinese culture and

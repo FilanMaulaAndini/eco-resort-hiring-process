@@ -82,13 +82,6 @@ export default function Footer() {
               </p>
             </div>
             <div className={styles.natureImageWrapper}>
-              {/* <img
-                src="https://images.prismic.io/ulaman/ZpDw3R5LeNNTxF2w_ulaman-bali.jpg?auto=format,compress"
-                alt="ulaman bali map"
-                className={styles.natureImage}
-                loading="lazy"
-              /> */}
-
               <Image
                 src="https://images.prismic.io/ulaman/ZpDw3R5LeNNTxF2w_ulaman-bali.jpg?auto=format,compress"
                 alt="Ulaman Bali map"

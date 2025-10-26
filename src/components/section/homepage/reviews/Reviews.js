@@ -91,11 +91,10 @@ export default function Reviews() {
               <article className={styles.slideContent}>
                 <header className={styles.slideHeader}>
                   <h3>{review.name}</h3>
-
                   <span>{review.date}</span>
                 </header>
+                <h5>{review.title}</h5>
                 <div className={styles.slideText}>
-                  <h5>{review.title}</h5>
                   {/* <p dangerouslySetInnerHTML={{ __html: review.text }} /> */}
                   <p>{review.text}</p>
                 </div>

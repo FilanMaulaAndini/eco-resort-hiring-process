@@ -1,11 +1,13 @@
 import styles from "./Map.module.css";
 import facilities from "/data/facilities.json";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function Map() {
+  const [ref, visible] = useFadeInOnScroll();
 
   return (
     <section className={styles.villasSection}>
-      <div className={styles.villasSectionHeading}>
+      <div ref={ref} className={`${styles.villasSectionHeading} ${visible ? "fade-in-up" : ""}`}>
         <h3 className={styles.villasSectionText}>
           Discover Ulaman
           <br />

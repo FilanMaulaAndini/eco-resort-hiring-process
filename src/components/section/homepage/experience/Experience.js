@@ -1,10 +1,12 @@
 import ButtonMore from "@/components/ui/button/ButtonMore";
 import styles from "./Experience.module.css";
 import { useEffect, useState, useRef } from "react";
+import useFadeInOnScroll from "../../../../hooks/fade-in-scroll";
 
 export default function Experience() {
   const sectionRef = useRef(null);
   const [progress, setProgress] = useState(0);
+  const [ref, visible] = useFadeInOnScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,7 @@ export default function Experience() {
 
   return (
     <section className={styles.experienceSection}>
-      <h2 className={styles.experienceSectionHeading}>
+      <h2 ref={ref} className={`${styles.experienceSectionHeading} ${visible ? "fade-in-up" : ""}`} >
         <p className={styles.experienceSectionText}>
           Experience a blend of nature, comfort and luxury like never before.
         </p>
