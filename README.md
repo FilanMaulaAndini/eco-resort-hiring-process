@@ -116,7 +116,7 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 10.	Asset Optimization: What is your strategy for optimally handling images, fonts, and static assets?
     
     Images go in `/public/images` folder. I compress them before adding to the project using tools like TinyPNG. In the code, I use Next.js Image component which automatically optimizes further. 
-    For fonts, I use `next/font` to self-host them instead of loading from Google. This is faster and more reliable.
+    For fonts, I use `next/font` to self-host them instead of loading from Google.
 
 
 <!-- ## Learn More
