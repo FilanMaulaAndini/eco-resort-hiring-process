@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<!-- This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel. -->
 
 
 ## Additional Questions
@@ -26,7 +26,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 **Front End Implementation**
 
 1.	Component Structure: How do you design component hierarchy to ensure reusability and maintainability?
-```bash
+```md
 I prefer organizing components by feature instead of type. For example, I group everything related to the footer, header, about section, etc., into their own folders. Inside each folder, I keep the component file [`(.js)`] and its corresponding CSS module [`(.module.css)`] together.
 I usually think about components in three levels of reusability:
 •	Layout components 
