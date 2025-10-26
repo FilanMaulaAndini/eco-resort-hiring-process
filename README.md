@@ -25,16 +25,16 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 **Front End Implementation**
 
-1.	Component Structure: How do you design component hierarchy to ensure reusability and maintainability?
+1.  Component Structure: How do you design component hierarchy to ensure reusability and maintainability?
 
-I prefer organizing components by feature instead of type. For example, I group everything related to the footer, header, about section, etc., into their own folders. Inside each folder, I keep the component file [`(.js)`] and its corresponding CSS module [`(.module.css)`] together.
+    I prefer organizing components by feature instead of type. For example, I group everything related to the footer, header, about section, etc., into their own folders. Inside each folder, I keep the component file `(.js)` and its corresponding CSS module [`(.module.css)`] together.
 
-I usually think about components in three levels of reusability:
-•	Layout components 
-•	Section components 
-•	UI components 
+    I usually think about components in three levels of reusability:
+    - Layout components 
+    - Section components 
+    - UI components 
 
-If a component is used in more than two places, I move it to a shared folder. If it’s only used once, it stays in its feature folder. 
+    If a component is used in more than two places, I move it to a shared folder. If it’s only used once, it stays in its feature folder. 
 
 
 
